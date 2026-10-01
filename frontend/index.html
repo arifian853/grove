@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#F4F7F1" />
+    <title>Grove — a little clarity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:wght@400;500;600;700&family=Lexend+Deca:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script src="/assets/scripts.js" defer></script>
+  </head>
+  <body>
+    <main class="app-container">
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-8-1-15 2-15 9a6 6 0 0 0 6 6c7 0 10-7 9-15Z"/><path d="M4 21 15 10"/></svg>
+          </div>
+          <div><h1>Grove</h1><p>A little clarity for your everyday notes.</p></div>
+        </div>
+        <span class="status-pill" id="status" role="status"><span class="status-dot" aria-hidden="true"></span><span id="status-text">Ready</span></span>
+      </header>
+
+      <section class="workspace" aria-labelledby="workspace-title">
+        <div class="workspace-header">
+          <div><h2 id="workspace-title">Your notes, made clear.</h2><p>Turn a long message into a short summary.</p></div>
+          <button class="ghost-button" id="clear-button" type="button" disabled>Clear</button>
+        </div>
+
+        <div class="messages" id="messages" role="log" aria-label="Your messages and summaries" aria-live="polite" aria-relevant="additions">
+          <div class="empty-state" id="empty-state">
+            <div class="empty-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l4 4v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h3Z"/><path d="M15 3v5h5M8 12h8M8 16h5"/></svg>
+            </div>
+            <h3>Make room for the essentials.</h3>
+            <p>Paste meeting notes, an article, or a message below.<br />Get the key points in a few bullets.</p>
+            <button class="example-button" id="example-button" type="button">Try an example</button>
+          </div>
+        </div>
+
+        <div class="composer-area">
+          <p class="error-message" id="error-message" role="alert" hidden></p>
+          <form id="message-form">
+            <label class="sr-only" for="message-input">Text to summarize</label>
+            <textarea id="message-input" name="text" rows="3" placeholder="Paste your notes or write a message…" required aria-describedby="composer-hint"></textarea>
+            <div class="composer-footer">
+              <span id="composer-hint">Ctrl / ⌘ + Enter to send</span>
+              <button class="send-button" id="send-button" type="submit" disabled>
+                <span>Summarize</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19 0-14M5 12l7-7 7 7"/></svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <footer class="page-footer">Keep the ideas. Skip the extra reading.</footer>
+    </main>
+  </body>
+</html>
