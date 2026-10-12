@@ -23,19 +23,24 @@
         <span class="status-pill" id="status" role="status"><span class="status-dot" aria-hidden="true"></span><span id="status-text">Ready</span></span>
       </header>
 
-      <section class="workspace" aria-labelledby="workspace-title">
+      <nav class="workspace-tabs" role="tablist" aria-label="Knowledge workspace">
+        <button id="tab-analyze" role="tab" aria-selected="true" aria-controls="workspace-panel" data-mode="analyze" type="button">Analyze</button>
+        <button id="tab-notes" role="tab" aria-selected="false" aria-controls="workspace-panel" data-mode="notes" tabindex="-1" type="button">Store knowledge</button>
+        <button id="tab-search" role="tab" aria-selected="false" aria-controls="workspace-panel" data-mode="search" tabindex="-1" type="button">Search knowledge</button>
+      </nav>
+      <section class="workspace" id="workspace-panel" role="tabpanel" aria-labelledby="tab-analyze">
         <div class="workspace-header">
-          <div><h2 id="workspace-title">Your notes, made clear.</h2><p>Turn a long message into a short summary.</p></div>
-          <button class="ghost-button" id="clear-button" type="button" disabled>Clear</button>
+          <div><h2 id="workspace-title">Your notes, in context.</h2><p id="workspace-description">Analyze with relevant knowledge. Your note is also saved to the database.</p></div>
+          <button class="ghost-button" id="clear-button" type="button" disabled>Clear results</button>
         </div>
 
-        <div class="messages" id="messages" role="log" aria-label="Your messages and summaries" aria-live="polite" aria-relevant="additions">
+        <div class="messages" id="messages" role="log" aria-label="Your notes and knowledge results" aria-live="polite" aria-relevant="additions">
           <div class="empty-state" id="empty-state">
             <div class="empty-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l4 4v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h3Z"/><path d="M15 3v5h5M8 12h8M8 16h5"/></svg>
             </div>
-            <h3>Make room for the essentials.</h3>
-            <p>Paste meeting notes, an article, or a message below.<br />Get the key points in a few bullets.</p>
+            <h3 id="empty-title">Connect today's notes with what you know.</h3>
+            <p id="empty-description">Get a brief summary with relevant previous notes, changes, and recurring issues.</p>
             <button class="example-button" id="example-button" type="button">Try an example</button>
           </div>
         </div>
@@ -43,19 +48,19 @@
         <div class="composer-area">
           <p class="error-message" id="error-message" role="alert" hidden></p>
           <form id="message-form">
-            <label class="sr-only" for="message-input">Text to summarize</label>
-            <textarea id="message-input" name="text" rows="3" placeholder="Paste your notes or write a message…" required aria-describedby="composer-hint"></textarea>
+            <label class="sr-only" id="input-label" for="message-input">Note to analyze and save</label>
+            <textarea id="message-input" name="text" rows="3" placeholder="Paste meeting or project notes to analyze and save…" required aria-describedby="composer-hint"></textarea>
             <div class="composer-footer">
               <span id="composer-hint">Ctrl / ⌘ + Enter to send</span>
               <button class="send-button" id="send-button" type="submit" disabled>
-                <span>Summarize</span>
+                <span>Analyze &amp; save</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19 0-14M5 12l7-7 7 7"/></svg>
               </button>
             </div>
           </form>
         </div>
       </section>
-      <footer class="page-footer">Keep the ideas. Skip the extra reading.</footer>
+      <footer class="page-footer">Save knowledge. Find connections. Keep the context.</footer>
     </main>
   </body>
 </html>
